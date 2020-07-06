@@ -1,24 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
+
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
+import Home from "./component/Product/Home"
+import Product4 from './component/Product/Product4'
+import Product4A from './component/Product/Product4A'
+import Product4B from './component/Product/Product4B' 
+import About from './component/Product/About'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >  
+     <Product4B></Product4B>
     </div>
   );
 }
