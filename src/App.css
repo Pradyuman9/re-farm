@@ -135,9 +135,10 @@
   margin-bottom: 50px;
   display: grid;
 }
-/* .details >.BuyNow{
+.details >.BuyNow{
   background-color:black;
-} */
+  color: white;
+}
 
  /* Content oft the  product screen 4BPAge*/ 
 
@@ -166,6 +167,7 @@
  }
  .Productdetails{
    display: flex;
+   flex-wrap: wrap;
  }
 
 .Productdetails img{

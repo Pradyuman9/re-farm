@@ -7,38 +7,6 @@ import './../CSS/minimal-slider.css'
 import Header from './comp/Header'
 import Footer from './comp/Footer'
 
-//images import
-import one from "./../images/1.jpg"
-import two from "./../images/2.jpg"
-import three from "./../images/3.png"
-import four from "./../images/4.jpg"
-import five from "./../images/5.jpg"
-import six from "./../images/6.png"
-import about from "./../images/about.jpg"
-import bottom from "./../images/bottom.jpg"
-import farming from "./../images/farming.jpg"
-import homev1 from "./../images/homev1.jpg"
-import homev2 from "./../images/homev2.jpg"
-import method from "./../images/method.png"
-import n1 from "./../images/n1.jpg"
-import n4 from "./../images/n4.jpg"
-import new1 from "./../images/new.png"
-import newsletter from "./../images/newsletter.jpg"
-import p1 from "./../images/p1.jpg"
-import p2 from "./../images/p2.jpg"
-import p3 from "./../images/p3.jpg"
-import p4 from "./../images/p4.jpg"
-import p5 from "./../images/p5.jpg"
-import p6 from "./../images/p5.jpg"
-import refarm from "./../images/refarm.png"
-import refarmlogo from "./../images/refarmlogo.png"
-import signin from "./../images/signin.jpg"
-import tracking from "./../images/tracking.jpg"
-import x1 from "./../images/x1.jpg"
-import x2 from "./../images/x2.jpg"
-import x3 from "./../images/x3.jpg"
-import x4 from "./../images/x4.jpg"
-
 const mystyle={
     fontfamily:"Oswald, sans-serif"
 };
@@ -67,7 +35,7 @@ function About(){
 			<section id="about">
       <div class="clsAutoFit">
 
-      <img class="cls-img" src={about} alt=""/>
+      <img class="cls-img" src='./../images/about.jpg' alt=""/>
       <div class="content-wrap">
         <p class="aaa" style={{"color": "#2c3446"}}>Lorem ipsum dolor sit amet Neque porro quisquam est qui dolorem </p>
       </div>

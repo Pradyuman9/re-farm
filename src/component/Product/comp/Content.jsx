@@ -1,8 +1,6 @@
 import React from "react"
 import ProdDetails from './ProdDetails'
 import ProdCard from './prodCard';
-import prodImg from "./../../images/prod-img.jpg"
-import ItemType from './../../images/ItemType.jpg'
 
 function GetCard(details){
   return(<ProdCard 
@@ -17,7 +15,7 @@ function Content(){
     return(
         <div className="bodyCon">
           <div className="Containor">
-				    <img classsName="prodIMG" src={prodImg} alt="img" width="100%" height="150"/>
+				    <img classsName="prodIMG" src='./../../images/prod-img.jpg' alt="img" width="100%" height="150"/>
 				    <div class="centered"><h1>PRODUCTS</h1></div>	
 			   </div>
            <div>
@@ -35,7 +33,7 @@ function Content(){
            </div>
           <div className="ProdDisplay">
             <div className="ItemType">
-            <img src={ItemType} alt="ItemType" width="95%" height="800px"/>
+            <img src='./../../images/ItemType.jpg' alt="ItemType" width="95%" height="800px"/>
             </div> 
             <div className="dd">
               {ProdDetails.map(GetCard)}    

@@ -1,7 +1,7 @@
 import React from 'react'
-import refarm from './../../images/re-farm.png'
-import banana from './../../images/Banana.jpg'
-import { Button } from 'react-bootstrap'
+
+
+
 
 
 function ContentB(){
@@ -9,7 +9,7 @@ function ContentB(){
         <div>
             <ul className="Top-Head">
              <li className="logoImg">
-              <img src={refarm} alt="Refarm"/>
+              <img src='./../../images/re-farm.png' alt="Refarm"/>
 							<h5>Home</h5>
 							<h5>Catalog</h5>
     	       </li>
@@ -28,7 +28,7 @@ function ContentB(){
 						</div>
 							<hr></hr>
 							<div className="Productdetails">
-								<img src={banana} alt=""/>
+								<img src='./../../images/Banana.jpg' alt=""/>
 								<a href="#Remove">Remove</a>
 								<p className="PriceValue">Rs 75.00</p>
 								<p className="QuantityValue">3</p>
