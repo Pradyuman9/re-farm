@@ -1,4 +1,12 @@
 import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,withRouter,
+  useRouteMatch,
+   useParams
+} from "react-router-dom";
 const Footer= () => {
   return (
 
@@ -41,13 +49,13 @@ const Footer= () => {
               </div>
               <ul class="links">
                 <li>
-                  <a href="index.html">Home</a>
+                <Link to={"/"}>Home</Link>
                 </li>
                 <li>
-                  <a href="about.html">About</a>
+                  <Link to={"/about"}>About</Link>
                 </li>
                 <li>
-                  <a href="product.html">Product</a>
+                <Link to={"/products"}>Products</Link>
                 </li>
                 <li>
                   <a href="services.html">Services</a>

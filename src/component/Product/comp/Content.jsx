@@ -1,21 +1,14 @@
 import React from "react"
 import ProdDetails from './ProdDetails'
-import ProdCard from './prodCard';
+import {Link} from "react-router-dom"
+import prodImg from "./../../images/prod-img.jpg"
+import imageType from "./../../images/ItemType.jpg"
 
-function GetCard(details){
-  return(<ProdCard 
-      key={details.id}
-      ProductImage={details.ProductImage}
-      ProductName={details.ProductName}
-      ProductPrice={details.ProductPrice}
-
-  />)
-}
 function Content(){
     return(
         <div className="bodyCon">
           <div className="Containor">
-				    <img classsName="prodIMG" src='./../../images/prod-img.jpg' alt="img" width="100%" height="150"/>
+				    <img classsName="prodIMG" src={prodImg} alt="img" width="100%" height="150"/>
 				    <div class="centered"><h1>PRODUCTS</h1></div>	
 			   </div>
            <div>
@@ -33,10 +26,24 @@ function Content(){
            </div>
           <div className="ProdDisplay">
             <div className="ItemType">
-            <img src='./../../images/ItemType.jpg' alt="ItemType" width="95%" height="800px"/>
+            <img src={imageType} alt="ItemType" width="95%" height="800px"/>
             </div> 
             <div className="dd">
-              {ProdDetails.map(GetCard)}    
+              {ProdDetails.map(GetCard=>
+              <div className="card" style={{ width: '18rem' }}>
+                        <Link to= {'/products/id='+GetCard._id}>
+                        <img className="card-img-top" src={GetCard.ProductImage} alt="Card cap"/>
+                        </Link>
+                      <div className="side">
+                        <a href="#hi" className="text">Add to Cart</a>
+                      </div>
+                      <div className="card-body">
+                        <h5 className="card-title">{GetCard.ProductName}</h5>
+                      <p className="card-text">{GetCard.ProductPrice}</p>
+                        {/* <a href="#Cart" class="btn btn-primary">Buy</a> */}
+                      </div>
+                      </div>
+                )}    
             </div>
           </div>  
          </div>)

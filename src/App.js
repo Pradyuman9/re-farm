@@ -20,15 +20,15 @@ import Product4B from './component/Product/Product4B'
 // eslint-disable-next-line
 import About from './component/Product/About'
 
-import product4A from './component/Product/Product4A';
 
 function App() {
   return (
     <Router >
      <Switch>
-     <Route path="/products"><Product4/></Route>
-      <Route  path="/"><Home/></Route>
-      
+     <Route exact path="/" component={Home}/>
+     <Route exact path="/products" component={Product4} />
+     <Route exact path="/about" component={About}></Route>
+  <Route exact path="/products/id=:id" children={<Product4A></Product4A>}>{Product4A}</Route>
      </Switch>
     </Router>
     

@@ -9,49 +9,49 @@ import RedCapsicumImg from "./../../images/RedCapsicum.jpg"
 
 const ProdDetail=[
     {
-        id:1,
+        _id:1,
         ProductImage:BananaIMg,
         ProductName:"Banana",
         ProductPrice:"Rs.25/Kg"
     },
     {
-        id:2,
+        _id:2,
         ProductImage:AppleImg,
         ProductName:"Apple",
         ProductPrice:"Rs.125/Kg"
     },
     {
-        id:3,
+        _id:3,
         ProductImage:GrapesImg,
         ProductName:"Grapes",
         ProductPrice:"Rs.85/Kg"
     },
     {
-        id:4,
+        _id:4,
         ProductImage:PotatoImg,
         ProductName:"Potato",
         ProductPrice:"Rs.18/Kg"
     },
     {
-        id:5,
+        _id:5,
         ProductImage:CarrotImg,
         ProductName:"Carrot",
         ProductPrice:"Rs.25/Kg"
     },
     {
-        id:6,
+        _id:6,
         ProductImage:MazieImg,
         ProductName:"Mazie",
         ProductPrice:"Rs.20/Kg"
     },
     {
-        id:7,
+        _id:7,
         ProductImage:RedCapsicumImg,
         ProductName:"Red Capsicum",
         ProductPrice:"Rs.30/Kg"
     },
     {
-        id:8,
+        _id:8,
         ProductImage:GrapesImg,
         ProductName:"Grapes",
         ProductPrice:"Rs.85/Kg"

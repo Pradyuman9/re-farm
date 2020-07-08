@@ -6,6 +6,7 @@ import './../CSS/component.css'
 import './../CSS/minimal-slider.css'
 import Header from './comp/Header'
 import Footer from './comp/Footer'
+import about from "./../images/about.jpg"
 
 const mystyle={
     fontfamily:"Oswald, sans-serif"
@@ -23,7 +24,7 @@ function About(){
 				<meta name="viewport" content="width=device-width, initial-scale=1"/>
 				<meta name="keywords" content="ReFarm "></meta>
 				<link href="./../CSS/bootstrap.css" rel="stylesheet" type="text/css"/>
-				<link rel="stylesheet" href="./../CSS/component.css" type="text/css" media="all"/>
+				<link rel="stylesheet" href="./..CSS/component.css" type="text/css" media="all"/>
 				<link href="./../CSS/style.css" rel="stylesheet" type="text/css"/>
 				<link href="./../CSS/minimal-slider.css" rel="stylesheet" type="text/css"/>
 			</head>
@@ -35,9 +36,10 @@ function About(){
 			<section id="about">
       <div class="clsAutoFit">
 
-      <img class="cls-img" src='./../images/about.jpg' alt=""/>
+      <img class="cls-img" src={about} alt=""/>
       <div class="content-wrap">
-        <p class="aaa" style={{"color": "#2c3446"}}>Lorem ipsum dolor sit amet Neque porro quisquam est qui dolorem </p>
+        <p class="aaa" style={{"color": "#2c3446"}}>Lorem ipsum dolor siest  sit amet when an unknown printer took a galley of type.Vivamus id tempor felis. Cras sagittis mi sit amet malesuada mollis</p>
+
       </div>
       <div class="content-wrap-2">
         <p class="aaa" style={{"color": "#2c3446"}}> Mauris porroinit consectetur cursus tortor vel interdum.Simply dummy text of the printing and typesetting industry.</p>

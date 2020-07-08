@@ -1,8 +1,12 @@
 import React from 'react'
 import refarm from './../../images/re-farm.png'
-import banana from './../../images/Banana.jpg'
+import { useParams } from "react-router"
+import banana from './../../images/Banana.jpg'	
+import ProdDetail from './ProdDetails'
 
-function contentA(){
+function contentA(props){
+	
+	const Product =ProdDetail.find(x=>x._id===this.props.match.params.id);
     return(
     <div >
             <ul className="Top-Head">
@@ -14,11 +18,11 @@ function contentA(){
             </ul> 
 					<div className="Buying">
 							<div className="ProductImg">
-								<img src={banana} alt="bananaimg"/>
+								<img src={Product.ProductImage} alt="bananaimg"/>
 							</div>
 							<div className="details">
-								<h1 className="ProductName">Banana</h1>
-								<h4 className="Price">Rs. 25/Kg</h4>
+								<h1 className="ProductName">{Product.ProductName}</h1>
+								<h4 className="Price">{Product.ProductPrice}</h4>
 								<button className="AddCart"><h5>Add to Cart</h5></button>
 								<button className="BuyNow"><h5>Buy Now</h5></button>
 							</div>

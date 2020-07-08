@@ -19,6 +19,7 @@ import refarm from "./../../images/re-farm.png"
 function Header(props){
     let match = useRouteMatch();
     return(
+        
         <header>
         {/* <div classNameName="App-header">
             <img  classNameName ="logo1" src={logo1} alt="hello"/>
@@ -64,9 +65,12 @@ function Header(props){
                                         {/* <span className="sr-only">(current)</span> */} 
                                     </li>
                                     <li className="nav-item">
-                                    <Link to={"/products"} className="nav-link" >About</Link>
+                                    <Link to={"/about"} className="nav-link" >About</Link>
                                     </li>
-                                    <li className="nav-item dropdown">
+                                    <li className="nav-item">
+                                    <Link to={"/products"} className="nav-link" >products</Link>
+                                    </li>
+                                    {/* <li className="nav-item dropdown">
                                         <a className="nav-link dropdown-toggle" href="#s" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Services
                                         <i className="fas fa-angle-down"></i>
@@ -77,7 +81,7 @@ function Header(props){
 
                                             <a className="dropdown-item" href="single.html" title="">Single Page</a>
                                         </div>
-                                    </li>
+                                    </li> */}
                                     <li className="nav-item">
                                         <a className="nav-link" href="gallery.html">Gallery</a>
                                     </li>
