@@ -1,7 +1,4 @@
-
-
-import React from "react"
-
+import React, { Component } from 'react'
 import {
     BrowserRouter as Router,
     Switch,
@@ -15,12 +12,13 @@ import logo1 from "./../../images/02d15d154afbf18851a6f9f22eb6e97c-01.png"
 import Home from './../Home'
 
 import refarm from "./../../images/re-farm.png"
+import SignIn from './SignIn';
 
-function Header(props){
-    let match = useRouteMatch();
-    return(
-        
-        <header>
+export default class Header extends Component {
+    render() {
+        return (
+            <div>
+                 <header>
         {/* <div classNameName="App-header">
             <img  classNameName ="logo1" src={logo1} alt="hello"/>
             <img classNameName="name-Re" src={refarm} alt="hello"/>
@@ -103,7 +101,58 @@ function Header(props){
                 </div>
             </div>	
     </header>
-    )
+    <SignIn></SignIn>
+    <div className="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div className="modal-dialog modal-dialog-centered" role="document">
+      <div className="modal-content">
+        <div className="modal-header text-center">
+          <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div className="modal-body">
+          <div className="login px-4 mx-auto mw-100">
+            <h5 className="text-center mb-4">Register Now</h5>
+            <form action="#" method="post">
+              <div className="form-group">
+                <label>First name</label>
+
+                <input type="text" className="form-control" id="validationDefault01" placeholder="" required=""/>
+              </div>
+              <div className="form-group">
+                <label>Last name</label>
+                <input type="text" className="form-control" id="validationDefault02" placeholder="" required=""/>
+              </div>
+              <div className="form-group">
+                <label className="mb-2">Email address</label>
+                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required=""/>
+                <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+
+              <div className="form-group">
+                <label className="mb-2">Password</label>
+                <input type="password" className="form-control" id="password1" placeholder="" required=""/>
+              </div>
+              <div className="form-group">
+                <label>Confirm Password</label>
+                <input type="password" className="form-control" id="password2" placeholder="" required=""/>
+              </div>
+
+              <button type="submit" className="btn btn-primary submit mb-4">Register</button>
+              <p className="text-center pb-4">
+                <a href="1#">By clicking Register, I agree to your terms</a>
+              </p>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+            </div>
+        )
+    }
 }
 
-export default Header;
+

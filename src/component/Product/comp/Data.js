@@ -6,7 +6,6 @@ import CarrotImg from "./../../images/Carrot.jpg"
 import MazieImg from "./../../images/Maize.jpg"
 import RedCapsicumImg from "./../../images/RedCapsicum.jpg"
 
-
 const ProdDetail=[
     {
         _id:1,

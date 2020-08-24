@@ -15,25 +15,25 @@ import three from "./../images/3.png"
 import four from "./../images/4.jpg"
 import five from "./../images/5.jpg"
 import six from "./../images/6.png"
-import bottom from "./../images/bottom.jpg"
-import farming from "./../images/farming.jpg"
-import homev1 from "./../images/homev1.jpg"
-import homev2 from "./../images/homev2.jpg"
+// import bottom from "./../images/bottom.jpg"
+// import farming from "./../images/farming.jpg"
+// import homev1 from "./../images/homev1.jpg"
+// import homev2 from "./../images/homev2.jpg"
 import method from "./../images/method.png"
-import n1 from "./../images/n1.jpg"
-import n4 from "./../images/n4.jpg"
-import new1 from "./../images/new.png"
-import newsletter from "./../images/newsletter.jpg"
+// import n1 from "./../images/n1.jpg"
+// import n4 from "./../images/n4.jpg"
+// import new1 from "./../images/new.png"
+// import newsletter from "./../images/newsletter.jpg"
 import p1 from "./../images/p1.jpg"
 import p2 from "./../images/p2.jpg"
 import p3 from "./../images/p3.jpg"
 import p4 from "./../images/p4.jpg"
 import p5 from "./../images/p5.jpg"
 import p6 from "./../images/p5.jpg"
-import refarm from "./../images/refarm.png"
-import refarmlogo from "./../images/refarmlogo.png"
-import signin from "./../images/signin.jpg"
-import tracking from "./../images/tracking.jpg"
+// import refarm from "./../images/refarm.png"
+// import refarmlogo from "./../images/refarmlogo.png"
+// import signin from "./../images/signin.jpg"
+// import tracking from "./../images/tracking.jpg"
 import x1 from "./../images/x1.jpg"
 import x2 from "./../images/x2.jpg"
 import x3 from "./../images/x3.jpg"
@@ -680,89 +680,94 @@ function Home(){
 
   <!--model-forms-->
   <!--/Login--> */}
-  <div className="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
-    <div className="modal-dialog modal-dialog-centered" role="document">
-      <div className="modal-content">
-        <div className="modal-header text-center">
-          <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div className="modal-body">
+    <div className="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+      <div className="modal-dialog modal-dialog-centered" role="document">
+        <div className="modal-content">
+          <div className="modal-header text-center">
+            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div className="modal-body">
 
-          <div className="login px-4 mx-auto mw-100">
-            <h5 className="text-center mb-4">Login Now</h5>
-            <form action="#" method="post">
-              <div className="form-group">
+            <div className="login px-4 mx-auto mw-100">
+              <h5 className="text-center mb-4">Login Now</h5>
+              <form action="#" method="post">
+                <div className="form-group">
+                  <label className="mb-2">Email address</label>
+                  <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required=""/>
+                  <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div className="form-group">
+                  <label className="mb-2">Password</label>
+                  <input type="password" className="form-control" id="exampleInputPassword1" placeholder="" required=""/>
+                </div>
+                <div className="form-check mb-2">
+                  <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
+                  <label className="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="submit" className="btn btn-primary submit mb-4">Sign In</button>
+                <p className="text-center pb-4">
+                  <a href="#16" data-toggle="modal" data-target="#exampleModalCenter2"> Don't have an account?</a>
+                </p>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    {/* //Login-->
+      /Register--> */}
+      {/* </div> */}
+    <div className="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-hidden="true">
+      <div className="modal-dialog modal-dialog-centered" role="document">
+        <div className="modal-content">
+          <div className="modal-header text-center">
+            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div className="modal-body">
+            <div className="login px-4 mx-auto mw-100">
+              <h5 className="text-center mb-4">Register Now</h5>
+              <form action="#" method="post">
+                <div className="form-group">
+                  <label>First name</label>
+
+                  <input type="text" className="form-control" id="validationDefault01" placeholder="" required=""/>
+                </div>
+                <div className="form-group">
+                  <label>Last name</label>
+                  <input type="text" className="form-control" id="validationDefault02" placeholder="" required=""/>
+                </div>
+                <div className="form-group">
                 <label className="mb-2">Email address</label>
                 <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required=""/>
                 <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
-              <div className="form-group">
-                <label className="mb-2">Password</label>
-                <input type="password" className="form-control" id="exampleInputPassword1" placeholder="" required=""/>
-              </div>
-              <div className="form-check mb-2">
-                <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-                <label className="form-check-label" for="exampleCheck1">Check me out</label>
-              </div>
-              <button type="submit" className="btn btn-primary submit mb-4">Sign In</button>
-              <p className="text-center pb-4">
-                <a href="#16" data-toggle="modal" data-target="#exampleModalCenter2"> Don't have an account?</a>
-              </p>
-            </form>
-          </div>
-        </div>
 
+                <div className="form-group">
+                  <label className="mb-2">Password</label>
+                  <input type="password" className="form-control" id="password1" placeholder="" required=""/>
+                </div>
+                <div className="form-group">
+                  <label>Confirm Password</label>
+                  <input type="password" className="form-control" id="password2" placeholder="" required=""/>
+                </div>
+
+                <button type="submit" className="btn btn-primary submit mb-4">Register</button>
+                <p className="text-center pb-4">
+                  <a href="1#">By clicking Register, I agree to your terms</a>
+                </p>
+              </form>
+
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
-  </div>
-  {/* //Login-->
-    /Register--> */}
-    {/* </div> */}
-  <div className="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-hidden="true">
-    <div className="modal-dialog modal-dialog-centered" role="document">
-      <div className="modal-content">
-        <div className="modal-header text-center">
-          <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div className="modal-body">
-          <div className="login px-4 mx-auto mw-100">
-            <h5 className="text-center mb-4">Register Now</h5>
-            <form action="#" method="post">
-              <div className="form-group">
-                <label>First name</label>
-
-                <input type="text" className="form-control" id="validationDefault01" placeholder="" required=""/>
-              </div>
-              <div className="form-group">
-                <label>Last name</label>
-                <input type="text" className="form-control" id="validationDefault02" placeholder="" required=""/>
-              </div>
-
-              <div className="form-group">
-                <label className="mb-2">Password</label>
-                <input type="password" className="form-control" id="password1" placeholder="" required=""/>
-              </div>
-              <div className="form-group">
-                <label>Confirm Password</label>
-                <input type="password" className="form-control" id="password2" placeholder="" required=""/>
-              </div>
-
-              <button type="submit" className="btn btn-primary submit mb-4">Register</button>
-              <p className="text-center pb-4">
-                <a href="1#">By clicking Register, I agree to your terms</a>
-              </p>
-            </form>
-
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
     </body>
     </div>
 

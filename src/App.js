@@ -1,6 +1,4 @@
-
-
-import React from 'react';
+import React, { Component } from 'react'
 import {
   BrowserRouter as Router,
   Switch,
@@ -19,21 +17,21 @@ import Product4A from './component/Product/Product4A'
 import Product4B from './component/Product/Product4B' 
 // eslint-disable-next-line
 import About from './component/Product/About'
+import checkOutScreen from './component/Product/checkOutScreen';
 
-
-function App() {
-  return (
-    <Router >
-     <Switch>
-     <Route exact path="/" component={Home}/>
-     <Route exact path="/products" component={Product4} />
-     <Route exact path="/about" component={About}></Route>
-  <Route exact path="/products/id=:id" children={<Product4A></Product4A>}>{Product4A}</Route>
-     </Switch>
+export default class App extends Component {
+  render(){
+    return (
+      <Router>
+      <Switch>
+        <Route exact path="/" component={Home}></Route>
+        <Route exact path="/products" component={Product4}></Route> 
+        <Route exact path="/products/:id" component={Product4A}></Route> 
+        <Route exact path="/about" component={About}></Route>
+        <Route exact path="/billing" component={checkOutScreen}></Route>
+      </Switch>
     </Router>
-    
-  );
+    );
+  }
 }
-
-export default App;
   
