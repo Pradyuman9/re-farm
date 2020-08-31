@@ -8,23 +8,49 @@ export default class checkOutScreen extends Component {
 constructor(props){
   super(props)
   this.state={
-    cartItems:[]
+    orderDetails:[],
+    uid:'',
+    address:''
   }
+  this.onChange=this.onChange.bind(this);
 }
 
 componentDidMount(){
-  Axios.get("https://us-central1-refarm.cloudfunctions.net/display_cart_items?accountkey=rgHAFFep9uP9p4jnOoR6ktZIlRs1")
-  .then(res=>{
+ const url ="https://us-central1-refarm.cloudfunctions.net/Order_Status"
+ Axios.post(url,{ order_stat:"pending",
+ accountid:"rgHAFFep9uP9p4jnOoR6ktZIlRs1",
+ orderpaymentstatus:"pending"})
+ .then(res=>{
+   console.log(res.data)
+  const orderDetails = res.data
+  this.setState({orderDetails});
+ })
+}
+
+orderFulffiled=(details)=>{
+  const url ="https://us-central1-refarm.cloudfunctions.net/Order_Status";
+  Axios.post(url,{order_stat:"fulfilled",
+    orderid:details.Order_ID,
+    orderpaymentstatus:details.Order_Payment_Status,
+    deliveryaddress:this.state.address
+  }).then(res=>{
     console.log(res.data)
-    const cartItems=res.data.Cartitems
-    this.setState({cartItems})
   })
 }
 
+getUid=(data)=>{
+  this.setState({uId:data})
+}
+onChange(e){
+  this.setState({[e.target.name]:e.target.value})
+ //  console.log(this.state)
+}
+
     render() {
+      const cartItems = this.props.location.state.CartDetail
         return (
             <div>
-                <Header></Header>
+                <Header returnUid = {this.getUid}></Header>
                 <head>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 </head>
@@ -43,8 +69,8 @@ componentDidMount(){
             <input type="text" id="fname" name="firstname" placeholder="John M. Doe"/>
             <label for="email"><i class="fa fa-envelope"></i> Email</label>
             <input type="text" id="email" name="email" placeholder="john@example.com"/>
-            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street"/>
+            <label for="adr"><i  class="fa fa-address-card-o"></i> Address</label>
+            <input  onChange={this.onChange} type="text" id="adr" name="address" placeholder="542 W. 15th Street"/>
             <label for="city"><i class="fa fa-institution"></i> City</label>
             <input type="text" id="city" name="city" placeholder="New York"/>
 
@@ -91,14 +117,14 @@ componentDidMount(){
         <label>
           <input type="checkbox" checked="checked" name="sameadr"/> Shipping address same as billing
         </label>
-        <input type="submit" value="Continue to checkout" class="btn"></input>
       </form>
+      <button  onClick={()=>this.orderFulffiled(this.state.orderDetails)}  class="btn">Continue to checkout</button>
     </div>
   </div>
   <div class="col-25">
     <div class="container">
-      <h4>Cart <span class="price" style={{"color":"black"}}><i class="fa fa-shopping-cart"></i> <b>{this.state.cartItems.length}</b></span></h4>
-      {this.state.cartItems.map((product)=>(
+      <h4>Cart <span class="price" style={{"color":"black"}}><i class="fa fa-shopping-cart"></i> <b>{cartItems.length}</b></span></h4>
+      {cartItems.map((product)=>(
         <p key ={product.Product_Id}><Link 
       to={`/products/${product.Product_Id}`}>{product.Product_name}</Link><span class="price">Rs {product.Price} X {product.Product_Qty}</span></p>
       ))} 
@@ -107,7 +133,7 @@ componentDidMount(){
       <p><a href="3#">Product 3</a> <span class="price">$8</span></p>
       <p><a href="4#">Product 4</a> <span class="price">$2</span></p> */}
       <hr/>
-      <p>Total:<span class="price" style={{"color":"black"}}><b>Rs {this.state.cartItems.reduce((a,c)=>a+(c.Price*c.Product_Qty),0)}</b></span></p>
+      <p>Total:<span class="price" style={{"color":"black"}}><b>Rs {cartItems.reduce((a,c)=>a+(c.Price*c.Product_Qty),0)}</b></span></p>
     </div>
   </div>
 </div>

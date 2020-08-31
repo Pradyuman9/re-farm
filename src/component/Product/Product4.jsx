@@ -17,6 +17,7 @@ export default class Product4 extends Component{
       products:[],
       cartItems:[],
       value:'1',
+      uId:''
       
     }
   }
@@ -31,33 +32,16 @@ componentDidMount(){
   })
   axios.get("https://us-central1-refarm.cloudfunctions.net/display_cart_items?accountkey=rgHAFFep9uP9p4jnOoR6ktZIlRs1")
     .then(res=>{
-      console.log(res.data)
       const cartItems=res.data.Cartitems
       this.setState({cartItems})
      
     })
 }
 
-login=(user)=>{
-  const url ='https://asia-south1-refarm.cloudfunctions.net/signInusingemailpassword'
-  axios.post(url,user)
-  .then(res => {
-    console.log(res);
-    console.log(res.data);
-    const details = res.data
-    this.setState({details})
-  })
+getUid=(data)=>{
+  this.setState({uId:data})
 }
-signUp=(user)=>{
-  const url ='https://asia-south1-refarm.cloudfunctions.net/signUpusingemailpassword'
-  axios.post(url,user)
-  .then(res => {
-    console.log(res);
-    console.log(res.data);
-    const details = res.data
-    this.setState({details})
-  })
-}
+
 
 removeFromCart=(product)=>{
   // const cartItems = this.state.cartItems;
@@ -66,7 +50,6 @@ removeFromCart=(product)=>{
   const url = "https://us-central1-refarm.cloudfunctions.net/subtraction_from_cart"
   axios.post(url,{accountkey:"rgHAFFep9uP9p4jnOoR6ktZIlRs1",
   id:product.Product_Id}).then(res=>{
-    console.log(res.data)
     if(this.state.cartItems.length===1 &&product.Product_Qty===1)
       {
         const cartItems=[]
@@ -75,13 +58,10 @@ removeFromCart=(product)=>{
     else{
       axios.get("https://us-central1-refarm.cloudfunctions.net/display_cart_items?accountkey=rgHAFFep9uP9p4jnOoR6ktZIlRs1")
     .then(res=>{
-      console.log(res.data)
       const cartItems=res.data.Cartitems
       this.setState({cartItems})
     })
-    }  
-    
-
+    } 
   })
 
 }
@@ -108,25 +88,19 @@ addToCart=(product)=>{
     qty: this.state.value,
     id:product.Product_ID})
     .then(res=>{
-      console.log(res);
-
       axios.get("https://us-central1-refarm.cloudfunctions.net/display_cart_items?accountkey=rgHAFFep9uP9p4jnOoR6ktZIlRs1")
     .then(res=>{
-      console.log(res.data)
       const cartItems=res.data.Cartitems
       this.setState({cartItems})
     })
-    })
-
-    
-    
+    }) 
 }
   render(props){
     var arr =Object.values(this.state.products)
 
     return (
       <div>
-        <Header></Header>
+        <Header returnUid = {this.getUid}></Header>
        
         <div className="bodyCon">
         <div className="Containor">
@@ -173,9 +147,9 @@ addToCart=(product)=>{
                 </select>
                 </li>
     <li className="add-to-cart">
-    <button onClick={()=>this.addToCart(product)}className="btn btn-primary">Add to Cart</button>
+    <button onClick={()=>this.addToCart(product)} className="btn btn-primary">Add to Cart</button>
     </li>
-  </ul>
+  </ul> 
   </div>
 </div>)}    
           </div>
@@ -186,7 +160,6 @@ addToCart=(product)=>{
         </div>  
        </div>
        <Footer></Footer>
-       <SignIn login={this.login}></SignIn>
   {/* //Login-->
     /Register--> */}
     {/* </div> */}

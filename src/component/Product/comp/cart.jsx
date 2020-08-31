@@ -5,7 +5,6 @@ import Axios from 'axios'
 
 export default class cart extends Component {
 
-
     render(props){
     var CartDetails = null
    let cartItems = this.props.cartItems
@@ -51,7 +50,9 @@ export default class cart extends Component {
                        {cartItems.reduce((a,c)=>a+(c.Price*c.Product_Qty),0)} 
                     </div>
                 </div>
-                <button className="button primary"><Link to={`/billing`}>Proceed</Link></button>
+                <button className="button primary"><Link to={{pathname:`/billing`,state:{
+                  CartDetail:cartItems
+                }}}>Proceed</Link></button>
         </div>
      </div>
    }
