@@ -9,7 +9,7 @@ import {
   } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css'
 import logo1 from "./../../images/02d15d154afbf18851a6f9f22eb6e97c-01.png"
-import Home from './../Home'
+import Home from '../Home'
 
 import refarm from "./../../images/re-farm.png"
 import SignIn from './SignIn';

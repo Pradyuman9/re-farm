@@ -51,7 +51,7 @@ export default class cart extends Component {
                     </div>
                 </div>
                 <button className="button primary"><Link to={{pathname:`/billing`,state:{
-                  CartDetail:cartItems
+                  CartDetail:cartItems,
                 }}}>Proceed</Link></button>
         </div>
      </div>

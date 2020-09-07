@@ -51,7 +51,7 @@ export default class Product4A extends Component {
       <h4 className="Price">{Product.Price}</h4>
             <ul>
                 <li>
-                <a className="AddCart"><h5>Add to Cart</h5></a>
+                <button  className="AddCart"><h5>Add to Cart</h5></button>
                 </li>
                 <li>
                 Quantity:<select>
@@ -64,7 +64,7 @@ export default class Product4A extends Component {
                 </select>
                 </li>
                 <li>
-                <a className="BuyNow"><h5>Buy Now</h5></a>  
+                <button className="BuyNow"><h5>Buy Now</h5></button>  
                 </li>
             </ul>
       </div>
