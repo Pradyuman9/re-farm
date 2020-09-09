@@ -19,6 +19,7 @@ import Product4B from './component/Screens/Product4B'
 import About from './component/Screens/About'
 import checkOutScreen from './component/Screens/checkOutScreen';
 import Confirmation from './component/Screens/confirmation';
+import Contact from './component/Screens/Contact';
 
 export default class App extends Component {
   render(){
@@ -30,6 +31,7 @@ export default class App extends Component {
         <Route exact path="/products/:id" component={Product4A}></Route>
         <Route exact path = "/confirmation" component={Confirmation}></Route> 
         <Route exact path="/about" component={About}></Route>
+        <Route exact path = '/contactUs' component={Contact}></Route>
         <Route exact path="/billing" component={checkOutScreen}></Route>
       </Switch>
     </Router>

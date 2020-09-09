@@ -120,7 +120,7 @@ export default class Header extends Component {
                                         <a className="nav-link" href="blog.html">Blog</a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="contact.html">Contact</a>
+                                        <Link to={"/contactUs"}className="nav-link" href="contact.html">Contact</Link>
                                     </li>
 
                                 </ul>
