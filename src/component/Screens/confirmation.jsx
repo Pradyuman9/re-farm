@@ -26,7 +26,7 @@ class Confirmation extends Component {
     this.setState({orderConfirmedDetails})
 
     const URL = "https://us-central1-refarm.cloudfunctions.net/deletion_of_cart"
-    Axios.post(URL,{accountkey:"rgHAFFep9uP9p4jnOoR6ktZIlRs1"})
+    Axios.post(URL,{accountkey:localStorage.getItem('uid')})
     .then(res=>{
       console.log(res)
     })
@@ -37,7 +37,7 @@ class Confirmation extends Component {
       const cartItems = this.props.location.state.cartItems;
       const orderConfirmedDetails = this.state.orderConfirmedDetails;
         return(
-<Router>
+  <Router>
           <Header></Header>
           <div className="hello">
               

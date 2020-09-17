@@ -5,12 +5,11 @@ import {
     Route,
     Link,withRouter,
     useRouteMatch,
-     useParams
+     useParams, Redirect
   } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css'
 import logo1 from "./../../images/02d15d154afbf18851a6f9f22eb6e97c-01.png"
 import Home from '../Home'
-
 import refarm from "./../../images/re-farm.png"
 import SignIn from './SignIn';
 import Axios from 'axios';
@@ -19,20 +18,34 @@ import SignUp from './SignUp';
 export default class Header extends Component {
   constructor(props){
     super(props)
+     const uid = localStorage.getItem("uid");
+         let loggedIn = true
+         if(uid==null){
+           loggedIn=false;
+         }
     this.state={
-      details:[]
+      details:[],
+      loggedIn
     }
   }
-  
   
   login=(user)=>{
     const url ='https://asia-south1-refarm.cloudfunctions.net/signInusingemailpassword'
     Axios.post(url,user)
     .then(res => {
       const details = res.data
-      this.props.returnUid(res.data.uid);
       this.setState({details})
+      console.log(details)
+       if(res.data.uid){
+         localStorage.setItem("uid",`${res.data.uid}`)
+         this.setState({loggedIn:true})
+         console.log(localStorage.getItem('uid'))
+       }else{
+         localStorage.setItem("error",`${res.data.error_message}`);
+         console.log(localStorage.getItem('error'))
+       }
     })
+
   }
 
   
@@ -41,16 +54,47 @@ export default class Header extends Component {
     Axios.post(url,user)
     .then(res => {
       const details = res.data
-      this.props.returnUid(res.data.uid);
       this.setState({details})
+      console.log(details)
+       if(res.data.uid){
+         localStorage.setItem("uid",`${res.data.uid}`)
+         this.setState({loggedIn:true})
+         console.log(localStorage.getItem('uid'))
+       }else{
+          localStorage.setItem("error",`${res.data.error_message}`);
+         console.log(localStorage.getItem('error'))
+       } 
     })
   }
-
-  
-
+  signOut=()=>{
+    localStorage.clear();
+    this.setState({loggedIn:false})
+  }
+ 
     render() {
+       var loggedInState=null
+       var alert=null
+       if(!this.state.loggedIn){
+         loggedInState=<div className="col-md-3 login-right-img text-center">
+         <a className="request text-uppercase" href="#1" data-toggle="modal" data-target="#exampleModalCenter">Sign In</a>
+         <a className="request text-uppercase" href="#2" data-toggle="modal" data-target="#exampleModalCenter2">Sign Up</a>
+       </div>
+       }else{
+         alert=<div class="alert">
+         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+         <strong>Welcome!</strong> You are loggedIn Succefully.
+       </div>
+         loggedInState=<div className="col-md-3 login-right-img text-center">
+         <a onClick={()=>this.signOut()} className="request text-uppercase" href="#1" >Sign Out</a>
+        
+       </div>
+       }
         return (
             <div>
+              
+              {console.log(localStorage.getItem('error'))}
+              {console.log(this.state.loggedIn)}
+              {console.log(localStorage.getItem('uid'))}
                  <header>
         {/* <div classNameName="App-header">
             <img  classNameName ="logo1" src={logo1} alt="hello"/>
@@ -75,10 +119,7 @@ export default class Header extends Component {
                             ReFarm</a> */}
           </h1>
         </div>
-        <div className="col-md-3 login-right-img text-center">
-          <a className="request text-uppercase" href="#1" data-toggle="modal" data-target="#exampleModalCenter">Sign In</a>
-          <a className="request text-uppercase" href="#2" data-toggle="modal" data-target="#exampleModalCenter2">Sign Up</a>
-        </div>
+        {loggedInState}
       </div>
     </div>
 		<div className="header-bg">
@@ -134,8 +175,8 @@ export default class Header extends Component {
                 </div>
             </div>	
     </header>
-    <SignIn login={this.login}></SignIn>
-    <SignUp signUp={this.signUp}></SignUp>
+    <SignIn login={this.login} path ={this.props.path}></SignIn>
+    <SignUp signUp={this.signUp} path ={this.props.path}></SignUp>
             </div>
         )
     }

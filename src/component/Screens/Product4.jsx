@@ -12,6 +12,7 @@ export default class Product4 extends Component{
   constructor(props){
     super(props)
     this.handleChange = this.handleChange.bind(this);
+  
     this.state=
     {
       products:[],
@@ -30,14 +31,13 @@ componentDidMount(){
     const products=res.data.Products
     this.setState({products})
   })
-  axios.get("https://us-central1-refarm.cloudfunctions.net/display_cart_items?accountkey=rgHAFFep9uP9p4jnOoR6ktZIlRs1")
+  axios.get(`https://us-central1-refarm.cloudfunctions.net/display_cart_items?accountkey=${localStorage.getItem('uid')}`)
     .then(res=>{
       const cartItems=res.data.Cartitems
       this.setState({cartItems})
-     
+      console.log(cartItems)
     })
 }
-
 getUid=(data)=>{
   this.setState({uId:data})
 }
@@ -48,7 +48,7 @@ removeFromCart=(product)=>{
   // this.setState({cartItems:cartItems.filter(x=>x.Product_ID!==product.Product_ID)})
   console.log(product)
   const url = "https://us-central1-refarm.cloudfunctions.net/subtraction_from_cart"
-  axios.post(url,{accountkey:"rgHAFFep9uP9p4jnOoR6ktZIlRs1",
+  axios.post(url,{accountkey:localStorage.getItem('uid'),
   id:product.Product_Id}).then(res=>{
     if(this.state.cartItems.length===1 &&product.Product_Qty===1)
       {
@@ -56,7 +56,7 @@ removeFromCart=(product)=>{
         this.setState({cartItems})
       }
     else{
-      axios.get("https://us-central1-refarm.cloudfunctions.net/display_cart_items?accountkey=rgHAFFep9uP9p4jnOoR6ktZIlRs1")
+      axios.get(`https://us-central1-refarm.cloudfunctions.net/display_cart_items?accountkey=${localStorage.getItem('uid')}`)
     .then(res=>{
       const cartItems=res.data.Cartitems
       this.setState({cartItems})
@@ -84,11 +84,11 @@ addToCart=(product)=>{
     //   id:product.Product_ID
     // }
     const url = "https://us-central1-refarm.cloudfunctions.net/add_to_cart"
-    axios.post(url,{accountkey:"rgHAFFep9uP9p4jnOoR6ktZIlRs1",
+    axios.post(url,{accountkey:localStorage.getItem('uid'),
     qty: this.state.value,
     id:product.Product_ID})
     .then(res=>{
-      axios.get("https://us-central1-refarm.cloudfunctions.net/display_cart_items?accountkey=rgHAFFep9uP9p4jnOoR6ktZIlRs1")
+      axios.get(`https://us-central1-refarm.cloudfunctions.net/display_cart_items?accountkey=${localStorage.getItem('uid')}`)
     .then(res=>{
       const cartItems=res.data.Cartitems
       this.setState({cartItems})
@@ -100,7 +100,7 @@ addToCart=(product)=>{
 
     return (
       <div>
-        <Header returnUid = {this.getUid}></Header>
+        <Header path = {this.props.match.path}></Header>
        
         <div className="bodyCon">
         <div className="Containor">

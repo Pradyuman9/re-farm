@@ -11,7 +11,6 @@ constructor(props){
   this.state={
     orderDetails:[],
     orderConfirmedDetails:[],
-    uid:'',
     address:'',
     city:'',
     state:'',
@@ -24,7 +23,7 @@ constructor(props){
 componentDidMount(){
  const url ="https://us-central1-refarm.cloudfunctions.net/Order_Status"
  Axios.post(url,{ order_stat:"pending",
- accountid:"rgHAFFep9uP9p4jnOoR6ktZIlRs1",
+ accountid:localStorage.getItem('uid'),
  orderpaymentstatus:"pending"})
  .then(res=>{
    console.log(res.data)
@@ -63,7 +62,7 @@ onChange(e){
       //console.log(address)
         return (
             <div>
-                <Header returnUid = {this.getUid}></Header>
+                <Header></Header>
                 <head>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 </head>
