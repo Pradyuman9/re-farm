@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Axios from 'axios';
+import { Link, Redirect } from 'react-router-dom';
 
 export default class SignUp extends Component {
     constructor(props){
@@ -17,36 +18,36 @@ export default class SignUp extends Component {
         this.setState({[e.target.name]:e.target.value})
        //  console.log(this.state)
       }
-      refreashPage=()=>{
-        window.location.reload(false);
-      }
+      
+
     render() {
       if(localStorage.getItem('uid')){
         return(
-         <div className="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-hidden="true">
-         <div className="modal-dialog modal-dialog-centered" role="document">
-           <div className="modal-content">
-             <div className="modal-header text-center">
-               <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                 <span aria-hidden="true">×</span>
-               </button>
-             </div>
-             <div className="modal-body">
-             <h5 className="text-center mb-4">Succesfully Logged In</h5>
-             </div>
-             </div>
-             </div>
-             </div>
+          <div className="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-hidden="true">
+          <div className="modal-dialog modal-dialog-centered" role="document">
+            <div className="modal-content">
+              <div className="modal-header text-center">
+                <button  onclick={()=>this.redirect()}type="button" className="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div className="modal-body">
+              <h5 className="text-center mb-4">Succesfully Logged In</h5>
+              </div>
+              </div>
+              </div>
+              </div>
         )
       }
        if(localStorage.getItem('error')){
          const message = localStorage.getItem('error')
+         console.log(message);
          localStorage.removeItem('error')
        return (<div className="modal fade" id="exampleModalCenter4" tabindex="-1" role="dialog" aria-hidden="true">
        <div className="modal-dialog modal-dialog-centered" role="document">
          <div className="modal-content">
            <div className="modal-header text-center">
-             <button onClick={()=>this.refreashPage()} type="button" className="close" data-dismiss="modal" aria-label="Close">
+             <button  type="button" className="close" data-dismiss="modal" aria-label="Close">
                <span aria-hidden="true">×</span>
              </button>
            </div>
@@ -59,6 +60,7 @@ export default class SignUp extends Component {
       }
         return (
           <div className="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-hidden="true">
+            {}
           <div className="modal-dialog modal-dialog-centered" role="document">
             <div className="modal-content">
               <div className="modal-header text-center">

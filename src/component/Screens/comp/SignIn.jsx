@@ -10,8 +10,6 @@ export default class SignIn extends Component {
             email:'',
             password:'',
             details:[],
-            isloggedIn:false,
-            
         }
         this.onChange=this.onChange.bind(this);
     }
@@ -22,18 +20,18 @@ export default class SignIn extends Component {
        //  console.log(this.state)
       }
       refreashPage=()=>{
-        this.setState({isloggedIn:true})
+          window.location.reload(false);
       }
      
 
     render() {
        if(localStorage.getItem('uid')){
          return(
-          <div className="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-hidden="true">
+          <div className="modal fade" id="exampleModalCenter5" tabindex="-1" role="dialog" aria-hidden="true">
           <div className="modal-dialog modal-dialog-centered" role="document">
             <div className="modal-content">
               <div className="modal-header text-center">
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                <button  onclick={()=>this.redirect()}type="button" className="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">×</span>
                 </button>
               </div>
@@ -45,10 +43,10 @@ export default class SignIn extends Component {
               </div>
          )
        }
-        if(localStorage.getItem('error')){
+        if(!localStorage.getItem('uid')&&localStorage.getItem('error')){
           const message = localStorage.getItem('error')
           localStorage.removeItem('error')
-        return (<div className="modal fade" id="exampleModalCenter4" tabindex="-1" role="dialog" aria-hidden="true">
+        return (<div className="modal fade" id="exampleModalCenter6" tabindex="-1" role="dialog" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered" role="document">
           <div className="modal-content">
             <div className="modal-header text-center">

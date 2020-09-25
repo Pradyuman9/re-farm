@@ -147,7 +147,7 @@ addToCart=(product)=>{
                 </select>
                 </li>
     <li className="add-to-cart">
-    <button onClick={()=>this.addToCart(product)} className="btn btn-primary">Add to Cart</button>
+    <button onClick={()=>this.addToCart(product)} className="btn12">Add to Cart</button>
     </li>
   </ul> 
   </div>

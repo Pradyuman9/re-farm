@@ -62,7 +62,6 @@ export default class Header extends Component {
          console.log(localStorage.getItem('uid'))
        }else{
           localStorage.setItem("error",`${res.data.error_message}`);
-         console.log(localStorage.getItem('error'))
        } 
     })
   }

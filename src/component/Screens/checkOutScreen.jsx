@@ -136,7 +136,7 @@ onChange(e){
                   Order_Payment_Status:this.state.orderDetails.Order_Payment_Status,
                   address:address,
                   total:total,
-                }}}><button class="btn">Continue to checkout</button> </Link>
+                }}}><button class="btn12">Continue to checkout</button> </Link>
       {/* <button  onClick={()=>this.orderFulffiled(this.state.orderDetails)}  class="btn">Continue to checkout</button> */}
     </div>
   </div>
